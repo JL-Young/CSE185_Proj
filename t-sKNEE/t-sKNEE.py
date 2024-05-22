@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import scanpy as sc
 
-def mytsne(adata, perp = 30):
+def tsKNEE(adata, perp = 30):
 
 
 
@@ -11,7 +11,7 @@ def mytsne_plot(adata, coor = None, perp = 30, xlabel = "tsne1", ylabel = "tsne 
     if "leiden" not in adata.obs: 
         raise Exception("anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
     # if coor = NONE: 
-    #     coor = mytsne(adata, perp)
+    #     coor = tsKNEE(adata, perp)
 
     plt.scatter(coors[:,0], coors[:,1], c = adata.obs["leiden"])
     plt.xlabel(xlabel)
