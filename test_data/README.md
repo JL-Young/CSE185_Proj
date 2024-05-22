@@ -7,4 +7,4 @@ The dataset `GSM5114474_M3_E7` is read in as anndata object. Cells with less tha
 
 A random list is generated for the obs and vars. The whole dataset is subsetted by the value of the random number to aroudn 50 obs x 1000 vars. However everytime, the script is ran, the dataset will differ. The anndata is then saved to `h5ad` file format (currently commented out). 
 
-test_data1 has 63 obs x 968 vars.
+test_data1 has 69 obs x 942 vars.

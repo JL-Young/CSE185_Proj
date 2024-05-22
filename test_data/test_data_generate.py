@@ -19,6 +19,6 @@ print(adata)
 adata.obs["rand_obs"] = [random.random() for i in range(adata.n_obs)]
 adata.var["rand_vars"] = [random.random() for i in range(adata.n_vars)]
 
-adata = adata[adata.obs.rand_obs < 0.025, adata.var.rand_vars < 0.07]
+adata = adata[adata.obs.rand_obs < 0.028, adata.var.rand_vars < 0.07]
 print(adata)
-#adata.write_h5ad("test_data2", compression = "gzip")
+adata.write_h5ad("test_data2.h5ad")
