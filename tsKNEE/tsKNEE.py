@@ -76,7 +76,7 @@ def p_joint(X, perp):
 def tsKNEE(adata, T=1000, perp = 30):
     if "leiden" not in adata.obs: 
         raise Exception("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
-        X = adata.X.toarray()
+    X = adata.X.toarray()
     N = X.shape[0]
     P = p_joint(X, perp)
     l=500
@@ -92,21 +92,22 @@ def tsKNEE(adata, T=1000, perp = 30):
         Y.append(y)
         if t % 10 == 0:
             Q = np.maximum(Q, 1e-12)
-    return y
+    adata.obsm['X_tsne'] =  y
 
 # can have the coordinates already generated, or just have a adata object (can run tsne in this function)
-def tsKNEE_plot(adata, coor = None, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None):
+def tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None):
     # import the n_obs x 2 (coordinates)
     if "leiden" not in adata.obs: 
         raise Exception("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
-    # if coor = NONE: 
-    #     coor = tsKNEE(adata, perp)
-
-    plt.scatter(coors[:,0], coors[:,1], c = adata.obs["leiden"])
+    if "X_tsne" not in adata.obsm:
+        raise Exception("Run tsKNEE on anndata object before continuing")
+    x = [val[0] for val in adata.obsm['X_tsne']]
+    y = [val[0] for val in adata.obsm['X_tsne']]
+    plt.scatter(x=x,y=y, c = adata.obs["leiden"])
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
-    plt.show
+    plt.show()
 
     if save is not None: 
         plt.savefig(save)
