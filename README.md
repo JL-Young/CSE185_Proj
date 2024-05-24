@@ -39,7 +39,6 @@ tsKNEE_plot(adata, coor = None, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", 
 - `title = ""`: the graph title
 - `save = None`: to save graph in a file
 
-To run `tsKNEE` and `tsKNEE_plot` on a small test example run `test_t-sKNEE.py`
 
 ## Data preprocessing
 
@@ -48,6 +47,8 @@ The input adata object needs to be **Leiden clustered** in both `t-sKNEE` and `t
 The desired quality control should be done previous to using t-sKNEE. 
 
 ## Testing 
+
+To run `tsKNEE` and `tsKNEE_plot` on a small test example run all cells up to cell 8 in `test_tsKNEE.ipynb`. Cell 8 gives coordinates of each sample in the test data for tsKNEE plotting. 
 
 ## Benchmarking
 
