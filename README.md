@@ -1,17 +1,20 @@
 # CSE185_Proj: t-sKNEE
 
-This is a package that implements tsne analysis and plotting as a CSE185 project. The main tsne calculation function `t-sKNEE` takes in an anndata object and outputs a n_obs x 2 matrix that contains the x and y coordinates for plotting for each sample. The tsne plotting function `tsKNEE_plot` takes an anndata obects and and generate the tsne plot. 
+This is a package that implements tsne analysis and plotting as a CSE185 project. The main tsne calculation function `t_sKNEE` takes in an anndata object and outputs a n_obs x 2 matrix that contains the x and y coordinates for plotting for each sample. The tsne plotting function `tsKNEE_plot` takes an anndata obects and generate the tsne plot. 
 
-t-sKNEE implements a subset of functions of `scanpy.tl.tsne` and `sc.pl.tsne`. 
+t-sKNEE implements a subset of functions of `scanpy.tl.tsne` and `sc.pl.tsne`. For more information about these functions visit ![scanpy](https://scanpy.readthedocs.io/en/stable/api/tools.html) page.
 
 ## Installation
 
-The user needs to have the following packages installed: `scanpy`, `matplotlib.pyplot`, `numpy`. This line of code can be run in command line for for installing these packages.
+The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`. This line of code can be run in command line for for installing these packages.
 
 ```
-pip install scanpy matplolib numpy
+pip install matplolib numpy
 ```
+Once the required libraries are installed, you can install `t-sKNEE` witht the following command.
+```python setup.py install```
 
+## Basic usage
 
 
 ## Data preprocessing
