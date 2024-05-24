@@ -1,7 +1,6 @@
+#import libraries
+from sklearn.datasets import load_digits
 import matplotlib.pyplot as plt
-import scanpy as sc
-import numpy as np 
-import scanpy as sc, anndata as ad
 
 #finding the euclidean distance 
 def pairwise_distances(X):
@@ -73,10 +72,9 @@ def p_joint(X, perp):
     p_cond = p_conditional(dists, sigmas)
     return (p_cond + p_cond.T) / (2. * N)
 
-def tsKNEE(adata,ydim=2, T=1000, l=500, perp = 30):
-    if "leiden" not in adata.obs: 
-        raise Exception("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
-        X = adata.X.toarray()
+#implementing the tsne 
+
+def tsne(X, ydim=2, T=1000, l=500, perp=30):
     N = X.shape[0]
     P = p_joint(X, perp)
 
@@ -93,20 +91,9 @@ def tsKNEE(adata,ydim=2, T=1000, l=500, perp = 30):
             Q = np.maximum(Q, 1e-12)
     return y
 
-# can have the coordinates already generated, or just have a adata object (can run tsne in this function)
-def tsKNEE_plot(adata, coor = None, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None):
-    # import the n_obs x 2 (coordinates)
-    if "leiden" not in adata.obs: 
-        raise Exception("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
-    # if coor = NONE: 
-    #     coor = tsKNEE(adata, perp)
-
-    plt.scatter(coors[:,0], coors[:,1], c = adata.obs["leiden"])
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.title(title)
-    plt.show
-
-    if save is not None: 
-        plt.savefig(save)
+#example dataset 
+X, y = load_digits(return_X_y=True)
+res = tsne(X, T=1000, l=200, perp=40)
+plt.scatter(res[:, 0], res[:, 1], s=20, c=y)
+plt.show()
 
