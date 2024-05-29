@@ -9,41 +9,47 @@ t-sKNEE implements a subset of functions of `scanpy.tl.tsne` and `sc.pl.tsne`. F
 The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`, `scanpy` as well as `leidenalg`. The following lines of code can be run in command line for for installing these packages.
 
 ```
-pip install matplolib numpy
+pip install matplotlib as plt
 pip install numpy as np
 pip install scanpy as sc
 pip install leidenalg
 ```
 Once the required libraries are installed, you can install `t_sKNEE` with the following command.
-```python setup.py install --prefix=$HOME```
+```python setup.py install```
+
+If you do not have admin access, the packages can be installed using the following commands.
+```
+pip install --user matplolib numpy
+pip install --user numpy as np
+pip install --user scanpy as sc
+pip install --user leidenalg
+python setup.py install --user
+```
 
 ## Basic usage
 
-There are two functions you can run wihtin `tsKNEE`- `tsKNEE` and `tsKNEE_plot`. The only required parameters to both functions is an anndata object. See Data Processing section for more information on the anndata object.
+There are two functions you can run wihtin `tsKNEE`- `tsKNEE` and `tsKNEE_plot`. The only required parameters for both functions is an anndata object. See Data Processing section for more information on the anndata object.
 
 The basic usage of `tsKNEE` is: 
 ```
-coor = tsKNEE(adata, T=1000, perp = 30)
+tsKNEE(adata, T=1000, perp = 30)
 ```
-- `T=1000`: the number of iterations tsKNEE go through to try and plot samples with similar similarity matrix
+- `T=1000`: the number of iterations tsKNEE goes through to plot samples with according to a similarity matrix
 - `perp=30`: the perplexity 
 
 The basic usage of `tsKNEE_plot` is: 
 ```
-tsKNEE_plot(adata, coor = None, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None)
+tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None)
 ```
-
-- `coor = None`: a n_obs x 2 matrix for plotting. If none, will run `tsKNEE` in the function with `adata `. 
 - `perp = 30`: the perplexity to run `tsKNEE` if necessary
 - `xlabel = "tsne1"`: the x-axis label for the graph
 - `ylabel = "tsne 2"`: the y-axis label for the graph
 - `title = ""`: the graph title
 - `save = None`: to save graph in a file
 
-
 ## Data preprocessing
 
-The input adata object needs to be **Leiden clustered** in both `t-sKNEE` and `tsKNEE_plot`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. 
+The input adata object needs to be **Leiden clustered** in both `tsKNEE` and `tsKNEE_plot`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. For `tsKNEE_plot`, the input anndata object must also have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. 
 
 The desired quality control should be done previous to using t-sKNEE. 
 
