@@ -6,6 +6,8 @@ setup(
     url='https://github.com/JL-Young/CSE185_Proj',
     install_requires=[
         "numpy",
-        "matplotlib"
+        "matplotlib",
+        "scanpy",
+        "leidenalg"
     ],
 )

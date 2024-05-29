@@ -1,24 +1,25 @@
 # CSE185_Proj: t-sKNEE
 
-This is a package that implements tsne analysis and plotting as a CSE185 project. The main tsne calculation function `tsKNEE` takes in an anndata object and outputs a n_obs x 2 matrix that contains the x and y coordinates for plotting for each sample. The tsne plotting function `tsKNEE_plot` takes an anndata obects and generate the tsne plot. 
+This package implements tsne analysis and plotting. The main tsne calculation function `tsKNEE` takes in an anndata object and outputs a n_obs x 2 matrix that contains the x and y coordinates for each sample. The tsne plotting function `tsKNEE_plot` takes an anndata obect and generates a tsne plot. 
 
 t-sKNEE implements a subset of functions of `scanpy.tl.tsne` and `sc.pl.tsne`. For more information about these functions visit [scanpy](https://scanpy.readthedocs.io/en/stable/api/tools.html) page.
 
 ## Installation
 
-The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`. This line of code can be run in command line for for installing these packages.
+The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`, `scanpy` as well as `leidenalg`. The following lines of code can be run in command line for for installing these packages.
 
 ```
 pip install matplolib numpy
+pip install numpy as np
+pip install scanpy as sc
+pip install leidenalg
 ```
-Once the required libraries are installed, you can install `t_sKNEE` witht the following command.
-```python setup.py install```
-
-To be continued...
+Once the required libraries are installed, you can install `t_sKNEE` with the following command.
+```python setup.py install --prefix=$HOME```
 
 ## Basic usage
 
-There are two functions you can run for `tsKNEE` and `tsKNEE_plot`. The only required parameters to both functions is an anndata object. See Data Processing section for more information on the anndata object.
+There are two functions you can run wihtin `tsKNEE`- `tsKNEE` and `tsKNEE_plot`. The only required parameters to both functions is an anndata object. See Data Processing section for more information on the anndata object.
 
 The basic usage of `tsKNEE` is: 
 ```
