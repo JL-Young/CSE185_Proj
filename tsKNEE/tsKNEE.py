@@ -102,7 +102,7 @@ def tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "
     if "X_tsne" not in adata.obsm:
         raise Exception("Run tsKNEE on anndata object before continuing")
     x = [val[0] for val in adata.obsm['X_tsne']]
-    y = [val[0] for val in adata.obsm['X_tsne']]
+    y = [val[1] for val in adata.obsm['X_tsne']]
     plt.scatter(x=x,y=y, c = adata.obs["leiden"])
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
