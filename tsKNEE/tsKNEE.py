@@ -1,4 +1,5 @@
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, matplotlib.colors as mcolors
+import random
 import scanpy as sc
 import numpy as np 
 import scanpy as sc, anndata as ad
@@ -102,8 +103,10 @@ def tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "
     if "X_tsne" not in adata.obsm:
         raise Exception("Run tsKNEE on anndata object before continuing")
     x = [val[0] for val in adata.obsm['X_tsne']]
-    y = [val[1] for val in adata.obsm['X_tsne']]
-    plt.scatter(x=x,y=y, c = adata.obs["leiden"])
+    y = [val[1] for val in adata.obsm['X_tsne']] 
+    colormap = list(mcolors.CSS4_COLORS.values())
+    colormap = random.sample(colormap, len(set(adata.obs["leiden"])))
+    plt.scatter(x=x,y=y, c = [colormap[int(i)] for i in adata.obs["leiden"]])
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
