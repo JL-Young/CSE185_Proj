@@ -21,4 +21,4 @@ adata.var["rand_vars"] = [random.random() for i in range(adata.n_vars)]
 
 adata = adata[adata.obs.rand_obs < 0.028, adata.var.rand_vars < 0.07]
 print(adata)
-adata.write_h5ad("test_data2.h5ad")
+adata.write_h5ad("small_test_data2.h5ad")
