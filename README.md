@@ -45,7 +45,7 @@ tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", s
 
 ## Data preprocessing
 
-The input adata object needs to be **Leiden clustered** in both `tsKNEE` and `tsKNEE_plot`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. For `tsKNEE_plot`, the input anndata object must also have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. 
+The input adata object needs to be **Leiden clustered** in both `tsKNEE` and `tsKNEE_plot`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. Before using `tsKNEE_plot`, the input anndata object must also have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. 
 
 The desired quality control should be done previous to using t-sKNEE. 
 
