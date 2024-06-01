@@ -1,5 +1,5 @@
 setup(
-    name='t-sKNEE',
+    name='t_sKNEE',
     description='CSE1185 Final Project',
     authors='Li, Venkatasubramani, Young',
     author_emails='jal098@ucsd.edu, jvenkatasubramani@ucsd.edu, jlyoung@ucsd.edu',
@@ -8,6 +8,7 @@ setup(
         "numpy",
         "matplotlib",
         "scanpy",
-        "leidenalg"
+        "leidenalg",
+        "random"
     ],
 )
