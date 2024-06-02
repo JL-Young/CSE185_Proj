@@ -99,21 +99,26 @@ def tsKNEE(adata, T=1000, perp = 30):
 def tsKNEE_plot(adata, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None):
     # import the n_obs x 2 (coordinates)
     if "leiden" not in adata.obs: 
-        raise Exception("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
+        raise ValueError("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
     if "X_tsne" not in adata.obsm:
-        raise Exception("Run tsKNEE on anndata object before continuing")
+        raise ValueError("Run tsKNEE on anndata object before continuing")
+    if save is not None and not isinstance(save, str):
+        raise ValueError("parameter for save needs to be a string or None")
+    if not (isinstance(xlabel, str) or isinstance(ylabel, str) or isinstance(title, str)):
+        raise ValueError("parameter for xlabel, ylabel, title need to be a string")
     x = [val[0] for val in adata.obsm['X_tsne']]
     y = [val[1] for val in adata.obsm['X_tsne']] 
     colormap = list(mcolors.CSS4_COLORS.values())
     colormap = random.sample(colormap, len(set(adata.obs["leiden"])))
-    plt.scatter(x=x,y=y, c = [colormap[int(i)] for i in adata.obs["leiden"]])
+    fig, ax = plt.subplots()
+    ax.scatter(x=x,y=y, c = [colormap[int(i)] for i in adata.obs["leiden"]])
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
-    plt.show()
 
     if save is not None: 
-        plt.savefig(save)
+        fig.savefig(save)
+    plt.show()
 
 
 

@@ -47,7 +47,7 @@ tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", s
 - `xlabel = "tsne1"`: the x-axis label for the graph
 - `ylabel = "tsne 2"`: the y-axis label for the graph
 - `title = ""`: the graph title
-- `save = None`: to save graph in a file
+- `save = None`: the name of the png saved (string)
 
 ## Data preprocessing
 
