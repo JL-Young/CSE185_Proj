@@ -54,7 +54,7 @@ The desired quality control should be done before using t-sKNEE.
 
 ## Testing 
 
-To run `tsKNEE` and `tsKNEE_plot` on a small test example run all cells up to cell 8 in `test_tsKNEE.ipynb`. Cell 8 gives coordinates of each sample in the test data for tsKNEE plotting. 
+To test `tsKNEE` and `tsKNEE_plot` on a small dataset, the `tsKNEE/test_tsKNEE.ipynb` can be run. 
 
 # Origin of Data
 
