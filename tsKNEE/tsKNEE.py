@@ -96,7 +96,7 @@ def tsKNEE(adata, T=1000, perp = 30):
     adata.obsm['X_tsne'] =  y
 
 # can have the coordinates already generated, or just have a adata object (can run tsne in this function)
-def tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None):
+def tsKNEE_plot(adata, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = None):
     # import the n_obs x 2 (coordinates)
     if "leiden" not in adata.obs: 
         raise Exception("Anndata object is not clustered with Leiden or the Leiden cluster values are not stored in a column named leiden in adata.obs.")
