@@ -5,11 +5,11 @@ This package implements tsne analysis and plotting. The main tsne calculation fu
 t-sKNEE implements the functions `scanpy.tl.tsne` and `sc.pl.tsne`. For more information about these functions visit [scanpy](https://scanpy.readthedocs.io/en/stable/api/tools.html) page.
 
 ## Installation
-First, the user needs to clone the repository using the following command 
+First, the user needs to clone the repository using the following command.
 ```
 git clone https://github.com/JL-Young/CSE185_Proj.git
 ```
-The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`, `scanpy` as well as `leidenalg`. These packages can be found in `requirements.txt`. The following lines of code can be run in command line for for installing these packages.
+The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`, `scanpy` as well as `leidenalg`. These packages can be found in `requirements.txt`. The following line of code can be run in command line for for installing these packages.
 
 ```
 pip install -r requirements.txt 
