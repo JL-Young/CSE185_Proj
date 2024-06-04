@@ -2,4 +2,3 @@ matplotlib
 numpy
 scanpy
 leidenalg
-random
