@@ -1,3 +1,5 @@
+from setuptools import setup, find_packages
+
 setup(
     name='t_sKNEE',
     version='1.0.0',  # You can specify the version
@@ -10,6 +12,6 @@ setup(
         'numpy',
         'matplotlib',
         'scanpy',
-        'leidenalg'
+        'leidenalg',
     ],
 )

@@ -4,7 +4,7 @@ import scanpy as sc
 import numpy as np 
 import scanpy as sc, anndata as ad
 
-#finding the euclidean distance 
+#finding the euclidean distance
 def pairwise_distances(X):
     return np.sum((X[None, :] - X[:, None])**2, 2)
 
@@ -114,6 +114,5 @@ def tsKNEE_plot(adata, xlabel = "tsne1", ylabel = "tsne 2", title = "", save = N
 
     if save is not None: 
         plt.savefig(save)
-
 
 
