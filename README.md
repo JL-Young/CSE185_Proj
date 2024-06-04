@@ -9,6 +9,12 @@ First, the user needs to clone the repository using the following command.
 ```
 git clone https://github.com/JL-Young/CSE185_Proj.git
 ```
+
+Then delete the memusg folder and clone the memusg repository using the following command.
+```
+git clone https://github.com/jhclark/memusg.git
+```
+
 The user needs to have the following libraries installed: `matplotlib.pyplot`, `numpy`, `scanpy` as well as `leidenalg`. These packages can be found in `requirements.txt`. The following line of code can be run in command line for for installing these packages.
 
 ```
