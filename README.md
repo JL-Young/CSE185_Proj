@@ -61,6 +61,12 @@ The desired quality control should be done before using t-sKNEE.
 
 To test `tsKNEE` and `tsKNEE_plot` on a small dataset, the `tsKNEE/test_tsKNEE.ipynb` can be run. 
 
+To run benchmarking, use this command to clone the `memusg` folder in the `CSE185_Proj` directory: 
+
+```
+git clone https://github.com/jhclark/memusg.git
+```
+
 ### Origin of Data
 
 Data is taken from CSE185 Lab 6 that was originally taken from the this paper [Functional, metabolic and transcriptional maturation of human pancreatic islets derived from stem cells](https://www.nature.com/articles/s41587-022-01219-z.pdf) and this [GEO website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5114474). 
