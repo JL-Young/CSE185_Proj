@@ -2,6 +2,8 @@
 
 This package implements tsne analysis and plotting. The main tsne calculation function `tsKNEE` takes in an anndata object and outputs a n_obs x 2 array that contains the x and y coordinates for each sample. The tsne plotting function `tsKNEE_plot` takes an anndata obect and generates a tsne plot. 
 
+<img src="tsKNEE_logo.png" alt="tsKNEE project logo" width="500"/>
+
 t-sKNEE implements the functions `scanpy.tl.tsne` and `sc.pl.tsne`. For more information about these functions visit [scanpy](https://scanpy.readthedocs.io/en/stable/api/tools.html) page.
 
 ## Installation
