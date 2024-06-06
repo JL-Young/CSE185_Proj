@@ -14,6 +14,8 @@ git clone https://github.com/JL-Young/CSE185_Proj.git
 
 Then delete the memusg folder and clone the memusg repository using the following command.
 ```
+cd CSE185_Proj
+rmdir memusg
 git clone https://github.com/jhclark/memusg.git
 ```
 
