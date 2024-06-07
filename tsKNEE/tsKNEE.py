@@ -80,7 +80,7 @@ def tsKNEE(adata, T=1000, perp = 30):
     X = adata.X.toarray()
     N = X.shape[0]
     P = p_joint(X, perp)
-    l=500
+    learning_rate=500
     ydim=2
     Y = []
     y = np.random.normal(loc=0.0, scale=1e-4, size=(N,ydim))
@@ -89,7 +89,8 @@ def tsKNEE(adata, T=1000, perp = 30):
     for t in range(T):
         Q = q_joint(Y[-1])
         grad = gradient(P, Q, Y[-1])
-        y = Y[-1] - l*grad + m(t)*(Y[-1] - Y[-2])
+        momentum = m(t)
+        y = Y[-1] - learning_rate*grad + momentum*(Y[-1] - Y[-2])
         Y.append(y)
         if t % 10 == 0:
             Q = np.maximum(Q, 1e-12)
