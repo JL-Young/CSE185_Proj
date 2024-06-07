@@ -55,8 +55,8 @@ The basic usage of `tsKNEE` is:
 ```
 tsKNEE(adata, T=1000, perp = 30)
 ```
-- `T=1000`: the number of iterations tsKNEE goes through to plot samples with according to a similarity matrix
-- `perp=30`: the perplexity 
+- `T=1000`: the number of iterations tsKNEE goes through to find the coordinates of smaples according to a similarity matrix
+- `perp=30`: the perplexity which controls how close or far the points will be 
 
 The basic usage of `tsKNEE_plot` is: 
 ```
