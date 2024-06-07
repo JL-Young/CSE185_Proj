@@ -24,7 +24,7 @@ def perp(condi_matr):
 def find_sigmas(dists, perplexity):
     found_sigmas = np.zeros(dists.shape[0])
     for i in range(dists.shape[0]):
-        func = lambda sig: perp(p_conditional(dists[i:i+1, :], np.array([sig])))
+        func = lambda sig: perp(g_conditional(dists[i:i+1, :], np.array([sig])))
         found_sigmas[i] = search(func, perplexity)
     return found_sigmas
 
