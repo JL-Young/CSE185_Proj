@@ -37,7 +37,9 @@ python setup.py install --user
 
 ## Data preprocessing and Usage
 
-`tsKNEE` is designed to be used in a python notebook or script. The user can create a notebook within the repository and import the package using `import tsKNEE`. Afterwards, the user can import their data of choice and store it as an anndata object. The input anndata object needs to be **leiden clustered** and have **graph neighbors** in prior to utilizing `tsKNEE`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. Before using `tsKNEE_plot`, the input anndata object must have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. The following lines of code below serve as an example of how to set up for `tsKNEE` usage. More examples can be seen in the "tskNEE/test_tsKNEE.ipynb". 
+`tsKNEE` is designed to be used in a python notebook or script. The user can create a notebook within the repository and import the package using `import tsKNEE`.
+
+Afterwards, the user can import their data of choice and store it as an anndata object. The input anndata object needs to be **leiden clustered** and have **graph neighbors** in prior to utilizing `tsKNEE`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. Before using `tsKNEE_plot`, the input anndata object must have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. The following lines of code below serve as an example of how to set up for `tsKNEE` usage. More examples can be seen in the "tskNEE/test_tsKNEE.ipynb". 
 
 ```
 adata = sc.read_h5ad("../small_test_data/small_test_data1.h5ad")
@@ -79,16 +81,18 @@ git clone https://github.com/jhclark/memusg.git
 
 ### Origin of Data
 
-Data is taken from CSE185 Lab 6 that was originally taken from this paper [Functional, metabolic and transcriptional maturation of human pancreatic islets derived from stem cells](https://www.nature.com/articles/s41587-022-01219-z.pdf) and this [GEO website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5114474). 
+Data is taken from the same paper as CSE185 Lab 6: [Functional, metabolic and transcriptional maturation of human pancreatic islets derived from stem cells](https://www.nature.com/articles/s41587-022-01219-z.pdf) which has their data in this [GEO website](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5114474). 
 
 ### Processing Data
 In order to visualize a more comprehensive plot, the data was preprocessed in the small_test_data.h5ad. 
 
 The dataset `GSM5114474_M3_E7` is read in as anndata object. Cells with less than 200 genes expressed and less than 1000 total reads are filtered out. Genes detected in less than 5 cells and genes that have total count of less than 15 is filtered out. 
 
-A random list is generated for the obs and vars. The whole dataset is subsetted by the value of the random number to around 50 obs x 1000 vars. However everytime, the script is ran, the dataset will differ. The anndata is then saved to `h5ad` file format (currently commented out). 
+A random list is generated for the obs and vars. The whole dataset is subsetted by the value of the random number to around 50 obs x 1000 vars. Everytime the script is ran, the dataset will differ, but one is already generated written to small_test_data.h5ad. The anndata is then saved to `h5ad` file format (currently commented out). 
 
-small_test_data has 69 obs x 942 vars.
+Small_test_data has 69 obs x 942 vars.
+
+A bigger dataset is created with GSM5114462_S6_B3, GSM5114465_S7_D25, and GSM5114475_M6_CTRL after the same filtering and quality control done in lab 6. This anndata object is written out to big_test_data.h5ad file in the big_test_data folder.
 
 ### Contributors
 
