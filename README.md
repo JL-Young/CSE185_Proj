@@ -12,7 +12,7 @@ First, the user needs to clone the repository using the following command.
 git clone https://github.com/JL-Young/CSE185_Proj.git
 ```
 
-Then delete the memusg folder and clone the memusg repository using the following command.
+If the user would like to test the benchmarking, delete the memusg folder and clone the memusg repository using the following command.
 ```
 cd CSE185_Proj
 rmdir memusg
