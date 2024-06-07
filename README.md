@@ -35,6 +35,18 @@ pip install --user -r requirements.txt
 python setup.py install --user
 ```
 
+## Data preprocessing and Usage
+
+`tsKNEE` is designed to be used in a python notebook or script. The user can create a notebook within the repository and import the package using `import tsKNEE`. Afterwards, the user can import their data of choice and store it as an anndata object. The input anndata object needs to be **leiden clustered** and have **graph neighbors** in prior to utilizing `tsKNEE`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. Before using `tsKNEE_plot`, the input anndata object must have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. The following lines of code below serve as an example of how to set up for `tsKNEE` usage. More examples can be seen in the "tskNEE/test_tsKNEE.ipynb". 
+
+```
+adata = sc.read_h5ad("../small_test_data/small_test_data1.h5ad")
+sc.pp.neighbors(tsne_adata)
+sc.tl.leiden(tsne_adata) 
+```
+
+The desired quality control should be done before using t-sKNEE. 
+
 ## Components
 
 There are two functions you can run within `tsKNEE`- `tsKNEE` and `tsKNEE_plot`. The only required parameters for both functions is an anndata object. See Data Processing section for more information on the anndata object.
@@ -54,18 +66,6 @@ tsKNEE_plot(adata, perp = 30, xlabel = "tsne1", ylabel = "tsne 2", title = "", s
 - `ylabel = "tsne 2"`: the y-axis label for the graph
 - `title = ""`: the graph title
 - `save = None`: the name to the png file (string) for saving the plot
-
-## Data preprocessing
-
-`tsKNEE` is designed to be used in a python notebook or script. The user can create a notebook within the repository and import the package using `import tsKNEE`. Afterwards, the user can import their data of choice and store it as an anndata object. The input anndata object needs to be **leiden clustered** and have **graph neighbors** in prior to utilizing `tsKNEE`. The anndata object needs to have a column named `leiden` in `anndata.obs` dataframe storing the cluster information for the sample. Before using `tsKNEE_plot`, the input anndata object must have `X_tsne` within `anndata.obsm` which is the output of the `tsKNEE` function. The following lines of code below serve as an example of how to set up for `tsKNEE` usage. More examples can be seen in the "tskNEE/test_tsKNEE.ipynb". 
-
-```
-adata = sc.read_h5ad("../small_test_data/small_test_data1.h5ad")
-sc.pp.neighbors(tsne_adata)
-sc.tl.leiden(tsne_adata) 
-```
-
-The desired quality control should be done before using t-sKNEE. 
 
 ## Testing 
 
